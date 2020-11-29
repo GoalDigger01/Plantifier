@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Plantifier</string>
+
+    <string-array name="Types">
+        <item>Choose Type</item>
+        <item>Plant</item>
+        <item>Tree</item>
+        <item>Flower</item>
+    </string-array>
+</resources>

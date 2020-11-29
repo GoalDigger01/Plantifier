@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "919025516140",
+    "firebase_url": "https://plantifier-f3997.firebaseio.com",
+    "project_id": "plantifier-f3997",
+    "storage_bucket": "plantifier-f3997.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919025516140:android:482ca74fc283c85c092249",
+        "android_client_info": {
+          "package_name": "edu.ucucite.ph.plantifier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919025516140-uhsfqib9fp9blceg99pp1r9f12v6jett.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ucucite.ph.plantifier",
+            "certificate_hash": "db9c6525aadd8d63bbbccbb71a7c2a275f31a6e2"
+          }
+        },
+        {
+          "client_id": "919025516140-gfd1mdrq84s13dmikvc5oi6hmsna644j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDScZ6JK-DzvO-te2cVdYobmlLU-knVltc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919025516140-gfd1mdrq84s13dmikvc5oi6hmsna644j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
