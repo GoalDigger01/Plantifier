@@ -1,9 +1,6 @@
 package edu.ucucite.ph.plantifier;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +11,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +57,7 @@ public class Description extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 if (adapterView.getItemAtPosition(position).equals("Choose Type")){
-                    Toast.makeText(Description.this, "Choose Type First", Toast.LENGTH_SHORT).show();
+
 
                 }else {
                     Type.setText(adapterView.getSelectedItem().toString());
@@ -96,31 +94,43 @@ public class Description extends AppCompatActivity {
 
 
 
+
+
         imageurl.setText(imageURL);
 
     }
 
     public void savebtn(View view) {
-        if(Type.getText().equals("")){
-            Toast.makeText(this, "Choose Type First", Toast.LENGTH_SHORT).show();
-        }
-        else if(Type.getText().equals("Plant")){
+
+        String uImageUrl = imageurl.getText().toString();
+        String uName = Name.getText().toString();
+        String uFamily = Family.getText().toString();
+        String uHabitat = Habitat.getText().toString();
+        String uFloweringTime = FloweringTime.getText().toString();
+        String uDescription = Description.getText().toString();
+
+        if (uName.isEmpty() || uFamily.isEmpty() || uDescription.isEmpty() || uFloweringTime.isEmpty() || uHabitat.isEmpty() || uImageUrl.isEmpty()){
+
+            Toast.makeText(this, "Fill Out First!", Toast.LENGTH_SHORT).show();
+
+    }
+         else if(Type.getText().equals("Plant")){
             uploadplants();
             uploadTopPicks();
 
-        }else if (Type.getText().equals("Tree")){
+        } else if (Type.getText().equals("Tree")){
             uploadtree();
             uploadTopPicks();
 
-        }else{
-            uploadflower();
-            uploadTopPicks();
+        }else {
+                uploadflower();
+                uploadTopPicks();
 
+            }
 
         }
 
 
-    }
 
     private void uploadTopPicks() {
         String uType = Type.getText().toString();

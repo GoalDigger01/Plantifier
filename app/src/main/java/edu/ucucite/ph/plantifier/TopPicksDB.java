@@ -6,6 +6,10 @@ public class TopPicksDB {
     String Name;
     String Family;
 
+    public TopPicksDB() {
+
+    }
+
     public String getType() {
         return Type;
     }

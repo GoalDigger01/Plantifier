@@ -1,34 +1,18 @@
 package edu.ucucite.ph.plantifier;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.icu.text.SimpleDateFormat;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -36,6 +20,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -60,6 +50,7 @@ public class Adminhome extends AppCompatActivity {
     ImageView selectedImage;
     Button descriptionbtn;
     String ImageUrl;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +98,7 @@ public class Adminhome extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             selectedImage.setImageBitmap(imageBitmap);
+
 
 
 
@@ -235,11 +227,19 @@ public class Adminhome extends AppCompatActivity {
 
 
     public void descriptionbtn(View view) {
+        String imageURL = URL.getText().toString();
 
-            String imageURL = URL.getText().toString();
+        if(imageURL.isEmpty()){
+            Toast.makeText(this, "Select Image First", Toast.LENGTH_SHORT).show();
+        }else{
             Intent i = new Intent(this, Description.class);
-         i.putExtra("ImageUrl",imageURL);
-         startActivity(i);
+            i.putExtra("ImageUrl",imageURL);
+            startActivity(i);
+        }
+
+
+
+
 
 
 
@@ -250,8 +250,10 @@ public class Adminhome extends AppCompatActivity {
     }
 
     public void gallerybtn(View view) {
-        Intent gallery = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, GALLERY_REQUEST_CODE);
+
+//        Intent gallery = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        startActivityForResult(gallery, GALLERY_REQUEST_CODE);
+
     }
 
 }
