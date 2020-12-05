@@ -146,7 +146,7 @@ public class Description extends AppCompatActivity {
 
         databaseTopPicks.child(id).setValue(topPicksDB);
 
-        Toast.makeText(this, "Uploaded", Toast.LENGTH_SHORT).show();
+
         startActivity(new Intent(this, Adminhome.class));
 
     }

@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,7 @@ public class Home extends AppCompatActivity {
 
 //    Firebase
     private DatabaseReference myRef;
+    StorageReference storageReference;
 //Variables
     private ArrayList<TopPicksDB> TopPicksDBList;
     private RecyclerAdapter recyclerAdapter;
@@ -56,14 +59,17 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
-        // get the reference of RecyclerView
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-// set a LinearLayoutManager with default orientation
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager); // set LayoutManager to RecyclerView
+        recyclerView = findViewById(R.id.recyclerview);
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        // get the reference of RecyclerView
+
+    
 
 //        Firebase
+        storageReference = FirebaseStorage.getInstance().getReference();
           myRef = FirebaseDatabase.getInstance().getReference("Top Picks");
 //          Arraylist
         TopPicksDBList = new ArrayList<>();
