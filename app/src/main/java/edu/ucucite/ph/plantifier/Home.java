@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -39,7 +38,7 @@ public class Home extends AppCompatActivity {
     private DatabaseReference myRef;
     StorageReference storageReference;
 //Variables
-    private ArrayList<TopPicksDB> TopPicksDBList;
+    private ArrayList<TopPicksDbRetrieve> TopPicksDBList;
     private RecyclerAdapter recyclerAdapter;
     private Context mContext;
 
@@ -66,7 +65,7 @@ public class Home extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         // get the reference of RecyclerView
 
-    
+
 
 //        Firebase
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -88,12 +87,14 @@ public class Home extends AppCompatActivity {
 
         Query query = myRef.child("Top Picks");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                    TopPicksDB toppicksDB = new TopPicksDB();
+
+                    TopPicksDbRetrieve toppicksDB = new TopPicksDbRetrieve();
                     toppicksDB.setImageurl(snapshot.child("imageurl").getValue().toString());
                     toppicksDB.setType(snapshot.child("type").getValue().toString());
                     toppicksDB.setName(snapshot.child("name").getValue().toString());
@@ -102,10 +103,14 @@ public class Home extends AppCompatActivity {
                     toppicksDB.setHabitat(snapshot.child("habitat").getValue().toString());
                     toppicksDB.setDescription(snapshot.child("description").getValue().toString());
                     TopPicksDBList.add(toppicksDB);
+
+
+                    recyclerAdapter = new RecyclerAdapter(mContext, TopPicksDBList);
+                    recyclerView.setAdapter(recyclerAdapter);
+
+                    recyclerAdapter.notifyDataSetChanged();
                 }
-                recyclerAdapter = new RecyclerAdapter(mContext, TopPicksDBList);
-                recyclerView.setAdapter(recyclerAdapter);
-                recyclerAdapter.notifyDataSetChanged();
+
 
             }
 
@@ -124,9 +129,6 @@ public class Home extends AppCompatActivity {
         if (TopPicksDBList !=null){
             TopPicksDBList.clear();
 
-            if(recyclerAdapter != null){
-                recyclerAdapter.notifyDataSetChanged();
-            }
         }
         TopPicksDBList = new ArrayList<>();
     }
@@ -155,17 +157,6 @@ public class Home extends AppCompatActivity {
 
     }
     //Methods
-    @Override
-    public void onResume(){
-        super.onResume();
-        registerReceiver(broadcastReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-    }
-
-    @Override
-    public void onPause(){
-        super.onPause();
-        unregisterReceiver(broadcastReceiver);
-    }
     public void broadCast(){
         conStatus();
         if(isConnected){
