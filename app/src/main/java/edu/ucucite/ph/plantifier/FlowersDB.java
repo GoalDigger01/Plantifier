@@ -8,6 +8,9 @@ public class FlowersDB {
         return Type;
     }
 
+    public FlowersDB() {
+    }
+
     public void setType(String type) {
         Type = type;
     }

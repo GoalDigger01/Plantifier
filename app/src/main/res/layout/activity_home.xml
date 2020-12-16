@@ -9,75 +9,76 @@
    >
 
     <TextView
-        android:id="@+id/flowersbtn"
+        android:id="@+id/plantsbtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Flowers"
-        android:textSize="20dp"
-        android:onClick="onClickflowers"
+        android:onClick="onClickplants"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
-
-    <TextView
-        android:id="@+id/plantsbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Plants"
         android:textSize="20dp"
-        android:onClick="onClickplants"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.301" />
 
     <TextView
-        android:id="@+id/treesbtn"
+        android:id="@+id/toppicksbtn2"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:background="@drawable/shapenagreen"
+        android:text="All"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <TextView
+        android:id="@+id/flowersbtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:onClick="onClickflowers"
+        android:text="Flowers"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <TextView
+        android:id="@+id/treesbtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClicktrees"
         android:fontFamily="sans-serif-black"
         android:text="Trees"
         android:textSize="20dp"
-        android:onClick="onClicktrees"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.665"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
-
-    <TextView
-        android:id="@+id/toppicksbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shapenagreen"
-        android:fontFamily="sans-serif-black"
-        android:text="Top Picks"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.61"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.301" />
 
     <ImageView
         android:id="@+id/profilebtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:onClick="onClickprofile"
+        android:layout_width="85dp"
+        android:layout_height="44dp"
         android:clickable="true"
         android:fontFamily="sans-serif-black"
+        android:onClick="onClickprofile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -88,22 +89,22 @@
 
     <ImageView
         android:id="@+id/aboutbtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:onClick="onClickabout"
+        android:layout_width="80dp"
+        android:layout_height="42dp"
         android:clickable="true"
+        android:onClick="onClickabout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profilebtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
+        app:layout_constraintVertical_bias="0.04"
         app:srcCompat="@drawable/about" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="312dp"
-        android:layout_height="49dp"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
         android:background="@drawable/shape"
         android:ems="10"
         android:hint="Search Here..."
@@ -112,49 +113,50 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.135" />
+        app:layout_constraintVertical_bias="0.134" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="61dp"
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141"
+        app:layout_constraintVertical_bias="0.132"
         app:srcCompat="@drawable/search" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="214dp"
         android:layout_height="72dp"
-        android:text="Plantifier"
-        android:textSize="40dp"
         android:fontFamily="sans-serif-black"
+        android:text="Plantifier"
         android:textColor="@color/red"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintVertical_bias="0.017" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
-        android:layout_width="410dp"
-        android:layout_height="490dp"
+        android:layout_width="409dp"
+        android:layout_height="461dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.988">
 
     </androidx.recyclerview.widget.RecyclerView>
 

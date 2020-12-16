@@ -22,15 +22,15 @@ public class TopPicksDbRetrieve {
         this.imageurl = imageurl;
     }
 
-    public String getType() {
+    public String gettype() {
         return type;
     }
 
-    public void setType(String type) {
+    public void settype(String type) {
         this.type = type;
     }
 
-    public String getName() {
+    public String getname() {
         return name;
     }
 
@@ -38,7 +38,7 @@ public class TopPicksDbRetrieve {
         this.name = name;
     }
 
-    public String getFamily() {
+    public String getfamily() {
         return family;
     }
 
@@ -46,7 +46,7 @@ public class TopPicksDbRetrieve {
         this.family = family;
     }
 
-    public String getFloweringtime() {
+    public String getfloweringtime() {
         return floweringtime;
     }
 
@@ -54,7 +54,7 @@ public class TopPicksDbRetrieve {
         this.floweringtime = floweringtime;
     }
 
-    public String getHabitat() {
+    public String gethabitat() {
         return habitat;
     }
 
@@ -62,7 +62,7 @@ public class TopPicksDbRetrieve {
         this.habitat = habitat;
     }
 
-    public String getDescription() {
+    public String getdescription() {
         return description;
     }
 
@@ -70,7 +70,7 @@ public class TopPicksDbRetrieve {
         this.description = description;
     }
 
-    public String getImageurl() {
+    public String getimageurl() {
         return imageurl;
     }
 

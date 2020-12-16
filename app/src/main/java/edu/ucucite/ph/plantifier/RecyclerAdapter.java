@@ -46,19 +46,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 //        TEXTVIEW
-        holder.textViewDescription.setText(TopPicksDBList.get(position).getDescription());
-        holder.textViewFamily.setText(TopPicksDBList.get(position).getFamily());
-        holder.textViewFloweringtime.setText(TopPicksDBList.get(position).getFloweringtime());
-        holder.textViewHabitat.setText(TopPicksDBList.get(position).getHabitat());
-        holder.textViewName.setText(TopPicksDBList.get(position).getName());
-        holder.textViewType.setText(TopPicksDBList.get(position).getType());
+        holder.textViewType.setText(TopPicksDBList.get(position).gettype());
+        holder.textViewName.setText(TopPicksDBList.get(position).getname());
+        holder.textViewFamily.setText(TopPicksDBList.get(position).getfamily());
+        holder.textViewHabitat.setText(TopPicksDBList.get(position).gethabitat());
+        holder.textViewFloweringtime.setText(TopPicksDBList.get(position).getfloweringtime());
+        holder.textViewDescription.setText(TopPicksDBList.get(position).getdescription());
+
 
 
 
 
 //        IMAGE : GLIDE LIBRARY
 
-        Glide.with(mContext).load(TopPicksDBList.get(position).getImageurl())
+        Glide.with(mContext).load(TopPicksDBList.get(position).getimageurl())
                 .into(holder.imageView);
 
 

@@ -7,6 +7,9 @@ public class TreesDB {
         return Type;
     }
 
+    public TreesDB() {
+    }
+
     public void setType(String type) {
         Type = type;
     }

@@ -1,10 +1,10 @@
 package edu.ucucite.ph.plantifier;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Adminlogin extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class Adminlogin extends AppCompatActivity {
     }
 
     public void cancelbtn(View view) {
-        startActivity(new Intent(this, Login.class));
+        startActivity(new Intent(this, Home.class));
     }
 
     public void adminloginbtn(View view) {

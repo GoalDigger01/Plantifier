@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -20,9 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
@@ -31,6 +30,10 @@ import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
+//  ADDED
+    private rAdapter mAdapter;
+    private ArrayList<TopPicksDB> mTopPicksDb;
+
     //Widget
         RecyclerView recyclerView;
 
@@ -38,7 +41,7 @@ public class Home extends AppCompatActivity {
     private DatabaseReference myRef;
     StorageReference storageReference;
 //Variables
-    private ArrayList<TopPicksDbRetrieve> TopPicksDBList;
+//    private ArrayList<TopPicksDbRetrieve> TopPicksDB;
     private RecyclerAdapter recyclerAdapter;
     private Context mContext;
 
@@ -68,70 +71,98 @@ public class Home extends AppCompatActivity {
 
 
 //        Firebase
-        storageReference = FirebaseStorage.getInstance().getReference();
+
           myRef = FirebaseDatabase.getInstance().getReference("Top Picks");
 //          Arraylist
-        TopPicksDBList = new ArrayList<>();
+        mTopPicksDb = new ArrayList<>();
 //          Clear Arraylist
-        ClearAll();
+//        ClearAll();
 //        Get Data Method
-        GetDataFromFirebase();
-            
+//        GetDataFromFirebase();
 
 
 
+//            ADDED
 
-    }
 
-    private void GetDataFromFirebase() {
 
-        Query query = myRef.child("Top Picks");
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot : snapshot.getChildren()){
+                    TopPicksDB topPicksDB = postSnapshot.getValue(TopPicksDB.class);
+                    mTopPicksDb.add(topPicksDB);
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
-
-                    TopPicksDbRetrieve toppicksDB = new TopPicksDbRetrieve();
-                    toppicksDB.setImageurl(snapshot.child("imageurl").getValue().toString());
-                    toppicksDB.setType(snapshot.child("type").getValue().toString());
-                    toppicksDB.setName(snapshot.child("name").getValue().toString());
-                    toppicksDB.setFamily(snapshot.child("family").getValue().toString());
-                    toppicksDB.setFloweringTime(snapshot.child("floweringTime").getValue().toString());
-                    toppicksDB.setHabitat(snapshot.child("habitat").getValue().toString());
-                    toppicksDB.setDescription(snapshot.child("description").getValue().toString());
-                    TopPicksDBList.add(toppicksDB);
-
-
-                    recyclerAdapter = new RecyclerAdapter(mContext, TopPicksDBList);
-                    recyclerView.setAdapter(recyclerAdapter);
-
-                    recyclerAdapter.notifyDataSetChanged();
                 }
+                mAdapter = new rAdapter(Home.this, mTopPicksDb);
+                recyclerView.setAdapter(mAdapter);
+
+
 
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
-
+                Toast.makeText(Home.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
+//        ADDED
 
 
 
     }
-    private void ClearAll(){
-        if (TopPicksDBList !=null){
-            TopPicksDBList.clear();
 
-        }
-        TopPicksDBList = new ArrayList<>();
-    }
+//    private void GetDataFromFirebase() {
+//
+//        Query query = myRef.child("Top Picks");
+//        query.addListenerForSingleValueEvent(new ValueEventListener() {
+//
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//
+//
+//                    TopPicksDbRetrieve toppicksDB = new TopPicksDbRetrieve();
+//                    toppicksDB.setImageurl(snapshot.child("imageurl").getValue().toString());
+//                    toppicksDB.settype(snapshot.child("type").getValue().toString());
+//                    toppicksDB.setName(snapshot.child("name").getValue().toString());
+//                    toppicksDB.setFamily(snapshot.child("family").getValue().toString());
+//                    toppicksDB.setFloweringTime(snapshot.child("floweringTime").getValue().toString());
+//                    toppicksDB.setHabitat(snapshot.child("habitat").getValue().toString());
+//                    toppicksDB.setDescription(snapshot.child("description").getValue().toString());
+//                    TopPicksDB.add(toppicksDB);
+//
+//
+//                    recyclerAdapter = new RecyclerAdapter(mContext, TopPicksDB);
+//                    recyclerView.setAdapter(recyclerAdapter);
+//
+//                    recyclerAdapter.notifyDataSetChanged();
+//                }
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//
+//
+//            }
+//        });
+
+
+
+//    }
+//    private void ClearAll(){
+//        if (TopPicksDB !=null){
+//            TopPicksDB.clear();
+//
+//        }
+//        TopPicksDB = new ArrayList<>();
+//    }
 
     public void onClickabout(View view) {
         startActivity(new Intent(this, About.class));
@@ -161,7 +192,7 @@ public class Home extends AppCompatActivity {
         conStatus();
         if(isConnected){
             if(isConnectionSignal){
-                startActivity(new Intent(this, Login.class));
+                startActivity(new Intent(this, Adminlogin.class));
             }else{
                 swipeStatus("Connecting...");
             }
@@ -236,4 +267,6 @@ public class Home extends AppCompatActivity {
             return false;
         }
     }
+
+
 }

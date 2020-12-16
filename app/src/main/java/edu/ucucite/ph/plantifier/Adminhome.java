@@ -113,6 +113,8 @@ public class Adminhome extends AppCompatActivity {
             selectedImage.setImageURI(contentUri);
             uploadImageToFirebase(imageFileName, contentUri);
             progressDialog = new ProgressDialog(this);
+
+            progressDialog.onStart();
             progressDialog.setMax(100);
             progressDialog.setMessage("Uploading...");
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -244,9 +246,6 @@ public class Adminhome extends AppCompatActivity {
 
 
 
-
-
-
     }
 
     public void gallerybtn(View view) {
@@ -256,4 +255,7 @@ public class Adminhome extends AppCompatActivity {
 
     }
 
+    public void logoutbtn(View view) {
+        startActivity(new Intent(this, Home.class));
+    }
 }

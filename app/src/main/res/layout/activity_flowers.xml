@@ -7,77 +7,45 @@
     tools:context=".Flowers"
     android:background="@color/bcolor">
 
-    <TextView
-        android:id="@+id/flowersbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Flowers"
-        android:textSize="20dp"
-        android:background="@drawable/shapenagreen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
-
-    <TextView
-        android:id="@+id/plantsbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Plants"
-        android:textSize="20dp"
-        android:onClick="onClickplants"
+    <ImageView
+        android:id="@+id/aboutbtn2"
+        android:layout_width="80dp"
+        android:layout_height="42dp"
         android:clickable="true"
+        android:onClick="onClickabout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toEndOf="@+id/profilebtn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintVertical_bias="0.043"
+        app:srcCompat="@drawable/about" />
 
-    <TextView
-        android:id="@+id/treesbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Trees"
-        android:textSize="20dp"
-        android:onClick="onClicktrees"
-        android:clickable="true"
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape"
+        android:ems="10"
+        android:hint="Search Here..."
+        android:inputType="textPersonName"
+        android:textSize="25dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.665"
+        app:layout_constraintHorizontal_bias="0.494"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
-
-    <TextView
-        android:id="@+id/toppicksbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:fontFamily="sans-serif-black"
-        android:text="Top Picks"
-        android:textSize="20dp"
-        android:onClick="onClicktoppicks"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintVertical_bias="0.134" />
 
     <ImageView
-        android:id="@+id/profilebtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:onClick="onClickprofile"
+        android:id="@+id/profilebtn2"
+        android:layout_width="85dp"
+        android:layout_height="44dp"
         android:clickable="true"
         android:fontFamily="sans-serif-black"
+        android:onClick="onClickprofile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -87,47 +55,92 @@
         app:srcCompat="@drawable/taoicon" />
 
     <ImageView
-        android:id="@+id/aboutbtn"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:onClick="onClickabout"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
-        app:srcCompat="@drawable/about" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="312dp"
-        android:layout_height="49dp"
-        android:background="@drawable/shape"
-        android:ems="10"
-        android:hint="Search Here..."
-        android:inputType="textPersonName"
-        android:textSize="25dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.135" />
-
-    <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView7"
         android:layout_width="61dp"
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.132"
+        app:srcCompat="@drawable/search" />
+
+    <TextView
+        android:id="@+id/toppicksbtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:onClick="onClicktoppicks"
+        android:text="All"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141"
-        app:srcCompat="@drawable/search" />
+        app:layout_constraintVertical_bias="0.301" />
+
+    <TextView
+        android:id="@+id/flowersbtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:background="@drawable/shapenagreen"
+        android:text="Flowers"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <TextView
+        android:id="@+id/treesbtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:onClick="onClicktrees"
+        android:text="Trees"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.61"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <TextView
+        android:id="@+id/plantsbtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:onClick="onClickplants"
+        android:text="Plants"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="410dp"
+        android:layout_height="465dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
         android:id="@+id/textView2"

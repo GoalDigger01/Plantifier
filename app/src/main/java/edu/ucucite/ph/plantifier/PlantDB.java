@@ -6,6 +6,10 @@ public class PlantDB {
     String Name;
     String Family;
     String Habitat;
+
+    public PlantDB() {
+    }
+
     String FloweringTime;
     String Description;
     String Imageurl;

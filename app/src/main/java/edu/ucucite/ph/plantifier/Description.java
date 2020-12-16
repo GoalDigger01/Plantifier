@@ -101,7 +101,7 @@ public class Description extends AppCompatActivity {
     }
 
     public void savebtn(View view) {
-
+        String uType = Type.getText().toString();
         String uImageUrl = imageurl.getText().toString();
         String uName = Name.getText().toString();
         String uFamily = Family.getText().toString();
@@ -109,7 +109,7 @@ public class Description extends AppCompatActivity {
         String uFloweringTime = FloweringTime.getText().toString();
         String uDescription = Description.getText().toString();
 
-        if (uName.isEmpty() || uFamily.isEmpty() || uDescription.isEmpty() || uFloweringTime.isEmpty() || uHabitat.isEmpty() || uImageUrl.isEmpty()){
+        if (uName.isEmpty() || uFamily.isEmpty() || uDescription.isEmpty() || uFloweringTime.isEmpty() || uHabitat.isEmpty() || uImageUrl.isEmpty() || uType.isEmpty()){
 
             Toast.makeText(this, "Fill Out First!", Toast.LENGTH_SHORT).show();
 
